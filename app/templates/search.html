@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+
+  <link rel="stylesheet" href="{% static 'global.css' %}">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <style>
+    
+  </style>
+
+  {% if results %}
+    <h1>Resultados da pesquisa:</h1>
+    <ul>
+        {% for produto in results %}
+            <li>{{ produto.nome }}</li>
+            <p>{{ produto.descricao }}</p>
+        {% endfor %}
+    </ul>
+  {% else %}
+      <h1>Nenhum resultado encontrado.</h1>
+  {% endif %}
+  
+</body>
+
+</html>

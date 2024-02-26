@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="utf-8">
+    <meta name="keywords" content="Product 1 Title, Product 2 Title, Product 3 Title">
+    <meta name="description" content="">
+  
+    <title>Carrinho de Compras</title>
+    <link rel="stylesheet" href="/static/pagabriel.css" media="screen">
+    <link rel="stylesheet" href="/static/carrinho.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/static/jquery-1.9.1.min.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/static/home.js" defer=""></script>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,400,500,600,700,800,900|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+
+  
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-e7fd"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <a href="/" class="u-image u-logo u-image-1" data-image-width="80" data-image-height="40">
+          <img src="/static/images/logologo.png" class="u-logo-image u-logo-image-1">
+        </a>
+        <nav class="u-menu u-menu-hamburger u-offcanvas u-menu-1" data-responsive-from="XL">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700; text-transform: uppercase;">
+            <a class="u-button-style u-custom-border u-custom-border-color u-custom-borders u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-spacing-20 u-unstyled u-nav-1">
+              <li class="u-nav-item">
+                <a class="u-button-style u-nav-link u-text-active-palette-3-base u-text-grey-90 u-text-hover-palette-3-base" href="/" style="padding: 10px;">Inicio</a>
+              </li>
+              <li class="u-nav-item">
+                <a class="u-button-style u-nav-link u-text-active-palette-3-base u-text-grey-90 u-text-hover-palette-3-base" href="/product_list" style="padding: 10px;">Produtos</a>
+              </li>
+              <li class="u-nav-item">
+                <a class="u-button-style u-nav-link u-text-active-palette-3-base u-text-grey-90 u-text-hover-palette-3-base" href="/carrinho" style="padding: 10px;">Carrinho</a>
+              </li>
+              <li class="u-nav-item">
+                <a class="u-button-style u-nav-link u-text-active-palette-3-base u-text-grey-90 u-text-hover-palette-3-base" href="/search" style="padding: 10px;">Busca</a>
+              </li>
+            </ul>
+
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
+                  <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="/">Inicio</a>
+                  </li>
+                  <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="/product_list" style="padding: 10px;">Produtos</a>
+                  </li>
+                  <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="/carrinho" style="padding: 10px;">Carrinho</a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+      <main>
+      <div class="page-title">Seu Carrinho</div>
+      <div class="content">
+        <section>
+          <table>
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Preço</th>
+                <th>-</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item_id, item in cart.items %}
+                <tr>
+                  <td>
+                    <div class="product">
+                      <img src="{{ item.img }}" alt="" />
+                      <div class="info">
+                        <div class="name">{{ item.item_name }}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td>R$ {{ item.price }}</td>
+                  <td>
+                      <form action="{% url 'remove_from_cart' item_id %}" method="post">
+                          {% csrf_token %}
+                          <button type="submit" class="remove"><i class="bx bx-x"></i></button>
+                      </form>
+                  </td>
+                </tr>
+              {% endfor %}
+              
+              <!--<tr>
+                <td>
+                  <div class="product">
+                    <img src="/static/images/racaoPedigree.png" alt="" />
+                    <div class="info">
+                      <div class="name">Ração Pedigree Carne</div>
+                    </div>
+                  </div>
+                </td>
+                <td>R$ 120</td>
+                <td>
+                  <div class="qty">
+                    <button><i class="bx bx-minus"></i></button>
+                    <span>2</span>
+                    <button><i class="bx bx-plus"></i></button>
+                  </div>
+                </td>
+                <td>R$ 240</td>
+                <td>
+                  <button class="remove"><i class="bx bx-x"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="product">
+                    <img src="/static/images/papelHigienico.png" alt="" />
+                    <div class="info">
+                      <div class="name">Papel Higiênico Neve</div>
+                    </div>
+                  </div>
+                </td>
+                <td>R$ 120</td>
+                <td>
+                  <div class="qty">
+                    <button><i class="bx bx-minus"></i></button>
+                    <span>2</span>
+                    <button><i class="bx bx-plus"></i></button>
+                  </div>
+                </td>
+                <td>R$ 240</td>
+                <td>
+                  <button class="remove"><i class="bx bx-x"></i></button>
+                </td>
+              </tr>-->
+            </tbody>
+          </table>
+        </section>
+        <aside>
+          <div class="box">
+            <header>Resumo da compra</header>
+            <div class="info">
+              <div><span>Sub-total</span><span>R$ {{ total_price }}</span></div>
+              <div><span>Frete</span><span>Gratuito</span></div>
+              <div>
+                <button>
+                  Adicionar cupom de desconto
+                  <i class="bx bx-right-arrow-alt"></i>
+                </button>
+              </div>
+            </div>
+            <footer>
+              <span>Total</span>
+              <span>R$ {{ total_price }}</span>
+            </footer>
+          </div>
+          <a href="/recorrencia" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-product-control u-text-black u-text-hover-white u-btn-1">Finalizar Compra</a>
+          <a href="/busca" class="u-border-2 u-border-black u-btn u-button-style u-hover-black u-none u-product-control u-text-black u-text-hover-white u-btn-1">Continuar Comprando</a>
+        </aside>
+      </div>
+    </main>
+    <footer class="u-align-center-sm u-align-center-xs u-clearfix u-custom-color-1 u-footer" id="sec-1d45"><div class="u-clearfix u-sheet u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <h4 class="u-text u-text-default u-text-1">Recurrency Affordable Price</h4>
+                <ul class="u-align-left u-file-icon u-text u-text-2">
+                  <li style="padding-left: 4px;"> Receba, Renove, Repita: O Hub de produtos recorrentes que simplifica sua vida</li>
+                </ul>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <h4 class="u-text u-text-default u-text-3">Empresa</h4>
+                <ul class="u-align-left u-file-icon u-text u-text-4">
+                  <li style="padding-left: 4px;">Início</li>
+                  <li style="padding-left: 4px;">Recursos</li>
+                  <li style="padding-left: 4px;">Produtos</li>
+                </ul>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <h4 class="u-text u-text-default u-text-5">Cliente</h4>
+                <ul class="u-align-left u-file-icon u-text u-text-6">
+                  <li style="padding-left: 4px;">Área do cliente</li>
+                  <li style="padding-left: 4px;">Login</li>
+                  <li style="padding-left: 4px;">Cadastro</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="u-image u-logo u-image-1" data-image-width="80" data-image-height="40">
+      </div></footer>
+  </body>
+</html>
+      

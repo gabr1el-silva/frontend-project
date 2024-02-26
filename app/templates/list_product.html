@@ -1,0 +1,258 @@
+{% load static %}
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+  <title>Lista de Produtos</title>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <title>Lista de produtos template</title>
+    <link rel="stylesheet" href="/static/pagabriel.css" media="screen">
+<link rel="stylesheet" href="/static/lista_produtos.css" media="screen">
+    <script class="u-script" type="text/javascript" src="/static/jquery-1.9.1.min.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="/static/home.js" defer=""></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,400,500,600,700,800,900|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+
+</head>
+  <body class="u-body u-xl-mode" data-lang="en"><header class="u-clearfix u-header u-header" id="sec-e7fd"><div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+    
+    <link rel="stylesheet" href="static/pagabriel.css" media="screen">
+<link rel="stylesheet" href="static/home-1.css" media="screen">
+    <script class="u-script" type="text/javascript" src="static/jquery-1.9.1.min.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="static/home.js" defer=""></script>
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,400,500,600,700,800,900|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:100,200,300,400,500,600,700,800,900">
+    
+    
+
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="home 1">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="/">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body class="u-body u-xl-mode" data-lang="en">
+    <style>
+      header {
+          max-width: 1140px;
+      margin: 0 auto;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav img {
+      height: 50px;
+      width: auto;
+    }
+    
+    a, u {
+      color: inherit;
+  text-decoration: none;
+}
+    
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style-type: none;
+    }
+
+    nav a {
+      cursor: pointer;
+    }
+    </style>
+
+    <header>
+    <nav>
+      <a >
+        <img style = "align-items:left; align-content: left;" src="https://media.discordapp.net/attachments/776536471195877376/1124317586566434817/logologo.png"/>
+      </a>
+
+    </nav>
+  </header> 
+  
+        </a>
+        <nav class="u-menu u-menu-hamburger u-offcanvas u-menu-1" data-responsive-from="XL">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px; font-weight: 700; text-transform: uppercase;">
+            <a class="u-button-style u-custom-border u-custom-border-color u-custom-borders u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-spacing-20 u-unstyled u-nav-1">
+              <li class="u-nav-item">
+                <a class="u-button-style u-nav-link u-text-active-palette-3-base u-text-grey-90 u-text-hover-palette-3-base" href="/" style="padding: 10px;">Inicio</a>
+              </li>
+              <li class="u-nav-item">
+                <a class="u-button-style u-nav-link u-text-active-palette-3-base u-text-grey-90 u-text-hover-palette-3-base" href="/product_list" style="padding: 10px;">Produtos</a>
+              </li>
+              <li class="u-nav-item">
+                <a class="u-button-style u-nav-link u-text-active-palette-3-base u-text-grey-90 u-text-hover-palette-3-base" href="/search" style="padding: 10px;">Busca</a>
+              </li>
+            </ul>
+
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
+                  <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="/">Inicio</a>
+                  </li>
+                  <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="/search" style="padding: 10px;">Busca</a>
+                  </li>
+                  <li class="u-nav-item">
+                    <a class="u-button-style u-nav-link" href="/carrinho" style="padding: 10px;">Carrinho</a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-align-center u-clearfix u-section-1" id="sec-b221">
+      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
+        <div class="u-expanded-width u-products u-repeater u-repeater-1">
+          <div class="u-align-center u-container-style u-products-item u-repeater-item u-white u-repeater-item-1">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
+              <img src="/static/images/goiabinha.jpg">
+              <h4 class="u-product-control u-text u-text-1">
+                <a class="u-product-title-link" href="/goiabinha">Biscoito Goiabinha</a>
+              </h4>
+              <div class="u-product-control u-product-price u-product-price-1">
+                <div class="u-price-wrapper u-spacing-10">
+                  <div class="u-hide-price u-old-price">R$3.59</div>
+                  <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;">R$1.38</div>
+                </div>
+              </div>
+              <a href="#" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-1">Adicionar ao carrinho</a>
+            </div>
+          </div>
+          <div class="u-align-center u-container-style u-products-item u-repeater-item u-white u-repeater-item-2">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-2">
+              <img src="/static/images/desodoranteRexona.png">
+              <h4 class="u-product-control u-text u-text-2">
+                <a class="u-product-title-link" href="/rexona">Desodorante Rexona </a>
+              </h4>
+              <div class="u-product-control u-product-price u-product-price-2">
+                <div class="u-price-wrapper u-spacing-10">
+                  <div class="u-hide-price u-old-price">$300.00</div>
+                  <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;">R$14.19</div>
+                </div>
+              </div>
+              <a href="#" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-2">Adicionar ao Carrinho</a>
+            </div>
+          </div>
+          <div class="u-align-center u-container-style u-products-item u-repeater-item u-white u-repeater-item-3">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
+              <img src="/static/images/racaoPedigree.png
+                ">
+              <h4 class="u-product-control u-text u-text-3">
+                <a class="u-product-title-link" href="/racao">Ração Pedigree Carne</a>
+              </h4>
+              <div class="u-product-control u-product-price u-product-price-3">
+                <div class="u-price-wrapper u-spacing-10">
+                  <div class="u-hide-price u-old-price">$25.00</div>
+                  <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;">R$138.90</div>
+                </div>
+              </div>
+              <a href="#" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-3">Adicionar ao carrinho</a>
+            </div>
+          </div>
+          <div class="u-align-center u-container-style u-products-item u-repeater-item u-white u-repeater-item-4">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-4">
+              <img src="/static/images/nuggetSadia.jpg">
+              <h4 class="u-product-control u-text u-text-4">
+                <a class="u-product-title-link" href="/nugget">Nuggets Sadia </a>
+              </h4>
+              <div class="u-product-control u-product-price u-product-price-4">
+                <div class="u-price-wrapper u-spacing-10">
+                  <div class="u-hide-price u-old-price">R$5.00</div>
+                  <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;">R$9.98</div>
+                </div>
+              </div>
+              <a href="#" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-4">Adicionar ao Carrinho</a>
+            </div>
+          </div>
+          <div class="u-align-center u-container-style u-products-item u-repeater-item u-white u-repeater-item-5">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
+              <img src="/static/images/7891203010605-bisnaguinha-panco-300g.jpg">
+              <h4 class="u-product-control u-text u-text-5">
+                <a class="u-product-title-link" href="/bisnaguinha">Pão bisnaguinha </a>
+              </h4>
+              <div class="u-product-control u-product-price u-product-price-5">
+                <div class="u-price-wrapper u-spacing-10">
+                  <div class="u-hide-price u-old-price">R$10.00</div>
+                  <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;">R$6.99</div>
+                </div>
+              </div>
+              <a href="#" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-5">Adicionar ao carrinho</a>
+            </div>
+          </div>
+          <div class="u-align-center u-container-style u-products-item u-repeater-item u-white u-repeater-item-6">
+            <div class="u-container-layout u-similar-container u-valign-top u-container-layout-6">
+              <img src="/static/images/papelHigienico.png">
+              <h4 class="u-product-control u-text u-text-6">
+                <a class="u-product-title-link" href="/papel">Papel Higiênico </a>
+              </h4>
+              <div class="u-product-control u-product-price u-product-price-6">
+                <div class="u-price-wrapper u-spacing-10">
+                  <div class="u-hide-price u-old-price">R$75.00</div>
+                  <div class="u-price u-text-palette-2-base" style="font-size: 1.25rem; font-weight: 700;">R$28.99</div>
+                </div>
+              </div>
+              <a href="#" class="u-border-2 u-border-grey-25 u-btn u-btn-rectangle u-button-style u-none u-product-control u-text-body-color u-btn-6">Adicionar ao Carrinho</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    
+    <footer class="u-align-center-sm u-align-center-xs u-clearfix u-custom-color-1 u-footer" id="sec-1d45"><div class="u-clearfix u-sheet u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+        <div class="u-expanded-width u-list u-list-1">
+          <div class="u-repeater u-repeater-1">
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-1">
+                <h4 class="u-text u-text-default u-text-1">RAP</h4>
+                <ul class="u-align-left u-file-icon u-text u-text-2">
+                  <li style="padding-left: 4px;"> Recurrency affordable price: O Hub de produtos recorrentes que simplifica sua vida</li>
+                </ul>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-2">
+                <h4 class="u-text u-text-default u-text-3">Site</h4>
+                <ul class="u-align-left u-file-icon u-text u-text-4">
+                  <li style="padding-left: 4px;">Home</li>
+                  <li style="padding-left: 4px;">Produtos</li>
+                  <li style="padding-left: 4px;">Carrinho</li>
+                </ul>
+              </div>
+            </div>
+            <div class="u-container-style u-list-item u-repeater-item">
+              <div class="u-container-layout u-similar-container u-container-layout-3">
+                <h4 class="u-text u-text-default u-text-5">Cliente</h4>
+                <ul class="u-align-left u-file-icon u-text u-text-6">
+                  <li style="padding-left: 4px;">Área do cliente</li>
+                  <li style="padding-left: 4px;">Login</li>
+                  <li style="padding-left: 4px;">Cadastro</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="#" class="u-image u-logo u-image-1" data-image-width="80" data-image-height="40">
+        </a>
+      </div></footer>
+  
+</body></html>

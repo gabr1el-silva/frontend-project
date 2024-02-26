@@ -1,0 +1,33 @@
+{% load static %}
+<html>
+<head>
+    <title>Minha Conta</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'client.css' %}">
+</head>
+<body>
+    <h1>Minha Conta</h1>
+    <h2>Dados Pessoais</h2>
+    <form method="post">
+      {% csrf_token %}
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" value="{{ cliente.username }}" required>
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="{{ cliente.email }}" required>
+      
+      <label for="first_name">First Name:</label>
+      <input type="text" id="first_name" name="first_name" value="{{ cliente.first_name }}" required>
+      
+      <input type="submit" value="Salvar">
+    </form>
+
+    <h2>Formas de Pagamento</h2>
+    <ul>
+        <li>Cartão de Crédito: **** **** **** 1234</li>
+        <li>PayPal: exemplo@paypal.com</li>
+      
+    </ul>
+    <button>Adicionar Forma de Pagamento</button>
+</body>
+</html>
+

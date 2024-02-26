@@ -1,0 +1,223 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+
+  <link rel="stylesheet" href="{% static 'global.css' %}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <style>
+    .products-wrap {
+      padding-top: 4rem;
+      padding-bottom: 4rem; 
+      margin-left: auto;
+      margin-right: auto; 
+      padding-left: 2rem;
+      padding-right: 2rem; 
+      max-width: 80rem; 
+    }
+
+    .section-title {
+      margin: 0;
+      color: #111827; 
+      font-size: 1.5rem;
+      line-height: 2rem; 
+      font-weight: 700; 
+      letter-spacing: -0.025em; 
+    }
+
+    .products-grid {
+      display: grid; 
+      margin-top: 1.5rem; 
+      grid-template-columns: repeat(1, minmax(0, 1fr)); 
+      column-gap: 1.5rem; 
+      row-gap: 2.5rem; 
+
+      @media (min-width: 1024px) { 
+        grid-template-columns: repeat(4, minmax(0, 1fr)); 
+       }
+      @media (min-width: 1280px) { 
+        column-gap: 2rem; 
+       }
+    }
+
+    .product-image {
+      overflow: hidden; 
+      background-color: #f6f6f6; 
+      width: 100%; 
+      border-radius: 0.375rem; 
+    }
+
+    .product-image img {
+      object-fit: contain; 
+      object-position: center; 
+      width: 100%; 
+      height: 17rem;
+    }
+
+    .product-inset {
+      position: absolute; 
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0; 
+    }
+
+    .product-price {
+      color: #111827; 
+      font-size: 0.875rem;
+      line-height: 1.25rem; 
+      font-weight: 500; 
+    }
+
+    .section-description {
+     margin: 0;
+      margin-top: 0.25rem; 
+color: #6B7280; 
+font-size: 0.875rem;
+line-height: 1.25rem; 
+    }
+
+    input {
+      margin: 1rem 0;
+      display: block; 
+      padding-top: 0.375rem;
+      padding-bottom: 0.375rem; 
+      padding-right: 0.75rem;
+      padding-left: 0.75rem;
+      
+      color: #111827; 
+      width: 100%; 
+      border-radius: 0.375rem; 
+      border-width: 0; 
+      box-shadow: inset 0 0 0 calc(1px) #D1D5DB; 
+      font-size: 0.875rem;
+        line-height: 1.25rem; 
+        line-height: 1.5rem; 
+    }
+
+    input:focus {
+      outline-width: 2px;
+      outline-style: solid;
+      outline-color: #4f46e5;
+      box-shadow: 0 0 0 3px #4f46e5;
+    }
+
+    input::placeholder {
+        color: #9ca3af;
+    }
+
+    header {
+          max-width: 80rem;
+      margin: 0 auto;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    nav img {
+      height: 50px;
+      width: auto;
+    }
+    
+    a, u {
+      color: inherit;
+  text-decoration: none;
+}
+    
+    nav ul {
+      display: flex;
+      gap: 2rem;
+      list-style-type: none;
+    }
+
+    nav a {
+      cursor: pointer;
+    }
+  </style>
+
+  <header>
+    <nav>
+      <a>
+        <img src="https://media.discordapp.net/attachments/776536471195877376/1124317586566434817/logologo.png"/>
+      </a>
+      <ul>
+        <li>
+          <a href="/">Início</a>
+        </li>
+        <li>
+          <a href="/produtos">Produtos</a>
+        </li>
+        <li>
+          <a href="/carrinho">Carrinho</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  
+  <div class="products-wrap">
+    <h2 class="section-title">Todos os Produtos</h2>
+    <p class="section-description">Aqui você pode encontrar todos os produtos disponíveis!</p>
+
+    <form method="GET" style="display: flex; align-items: center; position: relative;">
+      <input type="text" name="search" value="{{ Searched }}" placeholder="Buscar um produto.">
+      <button type="submit" style="background: none; position: absolute; right: .5rem; border: none; cursor: pointer;">
+        <svg style="width: 1rem;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+</svg>
+
+      </button>
+    </form>
+    
+
+    <div class="products-grid">
+
+      {% for produto in List %}
+        <div style="position: relative;">
+          <div class="product-image">
+            <img src="{{ produto.img.url }}" alt="Product Image">
+          </div>
+          <div style="display: flex; justify-content: space-between;">
+            <div>
+              <h3 style="color: #374151; font-size: 0.875rem; line-height: 1.25rem;">
+                <a href="/{{ produto.nome|lower|slugify }}">
+                  <span aria-hidden="true" class="product-inset"></span>
+                  {{ produto.nome }}
+                </a>
+              </h3>
+            </div>
+            <p class="product-price">R${{ produto.preco }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    
+      <!--<div style="position: relative;">
+        <div class="product-image">
+          <img src="https://htclick.com.br/wp-content/uploads/2019/09/cq5dam.web_.600.600-1.png">
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <div>
+            <h3 style="color: #374151; font-size: 0.875rem; line-height: 1.25rem;">
+              <a href="#">
+                <span aria-hidden="true" class="product-inset"></span>
+                Fone de ouvido Bose
+              </a>
+            </h3>
+          </div>
+          <p class="product-price">R$35,99</p>
+        </div>
+      </div>-->
+      
+    </div>
+  </div>
+</body>
+
+</html>
